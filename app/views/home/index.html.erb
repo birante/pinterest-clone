@@ -2,7 +2,12 @@
   <h1 class="display-4">Pinterest !</h1>
   <p class="lead">Deploy your creativity.</p>
 
-  <%= link_to "Login", new_user_session_path, { :class => "btn btn-secondary" } %>
-  <%= link_to "Join us", new_user_registration_path, { :class => "btn btn-pinterest" } %>
+  <% if user_signed_in? %>
+    <%= link_to "Add a pin", new_pin_path, { :class => "btn btn-pinterest" } %>
+    <%= link_to "Shows pins", pins_path, { :class => "btn btn-outline-secondary" } %>
+  <% else %>
+    <%= link_to "Login", new_user_session_path, { :class => "btn btn-secondary" } %>
+    <%= link_to "Join us", new_user_registration_path, { :class => "btn btn-pinterest" } %>
+  <% end %>
 
 </div>
